@@ -1,0 +1,6 @@
+{
+  "name": "MixFlow",
+  "description": "Générateur de playlists instantané, fonctionnant localement et hors-ligne pour s'adapter à vos genres et durées de musique.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
