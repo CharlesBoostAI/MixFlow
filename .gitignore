@@ -18,5 +18,5 @@ local.properties
 debug.keystore
 
 # Ensure the update APK is whitelisted and pushed to GitHub
-!/exported_apk/
-!/exported_apk/MixFlow-debug.apk
+!/distribution_apk/
+!/distribution_apk/MixFlow-debug.apk
