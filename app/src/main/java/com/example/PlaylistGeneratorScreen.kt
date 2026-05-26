@@ -80,7 +80,7 @@ fun PlaylistGeneratorScreen(viewModel: PlaylistViewModel) {
     var showUpdateDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
-        val info = UpdateChecker.checkForUpdate(currentVersionCode = 1)
+        val info = UpdateChecker.checkForUpdate(currentVersionCode = 2)
         if (info.hasUpdate) {
             updateInfo = info
             showUpdateDialog = true
