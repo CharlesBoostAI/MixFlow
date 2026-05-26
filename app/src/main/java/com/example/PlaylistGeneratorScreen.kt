@@ -444,7 +444,28 @@ fun PlaylistGeneratorScreen(viewModel: PlaylistViewModel) {
                                         contentAlignment = Alignment.Center
                                     ) {
                                         Text(
-                                            text = genre,
+                                            text = run {
+                                                val emoji = when (genre) {
+                                                    "Rock" -> "🎸 "
+                                                    "Pop" -> "🎤 "
+                                                    "Rap" -> "🎧 "
+                                                    "Phonk" -> "🚗 "
+                                                    "Électro" -> "⚡ "
+                                                    "Jazz" -> "🎷 "
+                                                    "Metal" -> "🤘 "
+                                                    "Variété Française" -> "🇫🇷 "
+                                                    "Reggae" -> "🦁 "
+                                                    "Classique" -> "🎻 "
+                                                    "Blues" -> "🎹 "
+                                                    "Lo-Fi" -> "☕ "
+                                                    "Country" -> "🤠 "
+                                                    "Disco" -> "🪩 "
+                                                    "K-Pop" -> "🫰 "
+                                                    "R&B" -> "🥂 "
+                                                    else -> "🎵 "
+                                                }
+                                                "$emoji$genre"
+                                            },
                                             fontSize = 12.sp,
                                             fontWeight = if (isSelected) FontWeight.Black else FontWeight.Medium,
                                             color = chipTextColor

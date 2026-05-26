@@ -63,7 +63,10 @@ class PlaylistViewModel : ViewModel() {
     val playlistSource: StateFlow<String?> = _playlistSource.asStateFlow()
 
     // Supported Genres
-    val availableGenres = listOf("Rock", "Pop", "Rap", "Phonk", "Électro", "Jazz", "Metal", "Variété Française")
+    val availableGenres = listOf(
+        "Rock", "Pop", "Rap", "Phonk", "Électro", "Jazz", "Metal", "Variété Française",
+        "Reggae", "Classique", "Blues", "Lo-Fi", "Country", "Disco", "K-Pop", "R&B"
+    )
 
     fun selectTab(index: Int) {
         _selectedTab.value = index

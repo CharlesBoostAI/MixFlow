@@ -85,7 +85,63 @@ object TrackDatabase {
         Track("Balance Ton Quoi", "Angèle", "Variété Française", 189),
         Track("Pour que tu m'aimes encore", "Céline Dion", "Variété Française", 254),
         Track("Je l'aime à mourir", "Francis Cabrel", "Variété Française", 162),
-        Track("La Javanaise", "Serge Gainsbourg", "Variété Française", 149)
+        Track("La Javanaise", "Serge Gainsbourg", "Variété Française", 149),
+
+        // Reggae (5 songs)
+        Track("One Love", "Bob Marley", "Reggae", 172),
+        Track("No Woman, No Cry", "Bob Marley", "Reggae", 226),
+        Track("Red Red Wine", "UB40", "Reggae", 183),
+        Track("Sweat (A La La La La Long)", "Inner Circle", "Reggae", 226),
+        Track("Many Rivers to Cross", "Jimmy Cliff", "Reggae", 164),
+
+        // Classique (5 songs)
+        Track("Symphony No. 9 (Ode to Joy)", "Beethoven", "Classique", 390),
+        Track("Eine kleine Nachtmusik", "Mozart", "Classique", 350),
+        Track("Spring (The Four Seasons)", "Vivaldi", "Classique", 190),
+        Track("Air on the G String", "Bach", "Classique", 300),
+        Track("Clair de Lune", "Debussy", "Classique", 305),
+
+        // Blues (5 songs)
+        Track("The Thrill Is Gone", "B.B. King", "Blues", 324),
+        Track("House of the Blues", "Muddy Waters", "Blues", 156),
+        Track("Pride and Joy", "Stevie Ray Vaughan", "Blues", 220),
+        Track("Cross Road Blues", "Robert Johnson", "Blues", 150),
+        Track("Stone Crazy", "Buddy Guy", "Blues", 430),
+
+        // Lo-Fi (5 songs)
+        Track("Blue In Green", "L.Dre", "Lo-Fi", 140),
+        Track("Lofi Hip Hop Beats", "ChilledCow", "Lo-Fi", 180),
+        Track("The Girl I Haven't Met", "Kudasaibeats", "Lo-Fi", 135),
+        Track("Affection", "Jinsang", "Lo-Fi", 142),
+        Track("Phantasia", "Idealism", "Lo-Fi", 130),
+
+        // Country (5 songs)
+        Track("Ring of Fire", "Johnny Cash", "Country", 157),
+        Track("Jolene", "Dolly Parton", "Country", 160),
+        Track("Take Me Home, Country Roads", "John Denver", "Country", 190),
+        Track("On the Road Again", "Willie Nelson", "Country", 153),
+        Track("Man! I Feel Like a Woman!", "Shania Twain", "Country", 233),
+
+        // Disco (5 songs)
+        Track("Stayin' Alive", "Bee Gees", "Disco", 285),
+        Track("Dancing Queen", "ABBA", "Disco", 230),
+        Track("I Will Survive", "Gloria Gaynor", "Disco", 201),
+        Track("Hot Stuff", "Donna Summer", "Disco", 314),
+        Track("Le Freak", "Chic", "Disco", 328),
+
+        // K-Pop (5 songs)
+        Track("Dynamite", "BTS", "K-Pop", 199),
+        Track("DDU-DU DDU-DU", "BLACKPINK", "K-Pop", 209),
+        Track("Gangnam Style", "PSY", "K-Pop", 219),
+        Track("Hype Boy", "NewJeans", "K-Pop", 179),
+        Track("Fancy", "TWICE", "K-Pop", 215),
+
+        // R&B (5 songs)
+        Track("Pink + White", "Frank Ocean", "R&B", 184),
+        Track("Kill Bill", "SZA", "R&B", 153),
+        Track("If I Ain't Got You", "Alicia Keys", "R&B", 228),
+        Track("Yeah!", "Usher", "R&B", 250),
+        Track("Halo", "Beyonce", "R&B", 261)
     )
 
     /**
@@ -100,9 +156,17 @@ object TrackDatabase {
         val rapKeywords = listOf("rap", "eminem", "drake", "kendrick", "lamar", "post", "malone", "travis", "scott", "tupac", "hip", "hop", "gangsta")
         val phonkKeywords = listOf("phonk", "kordhell", "lxst", "dvrst", "hensonn", "interworld", "drift", "giga", "chad", "memphis")
         val electroKeywords = listOf("electro", "daft", "punk", "avicii", "garrix", "guetta", "swedish", "house", "calvin", "harris", "kygo", "disco", "techno", "electronic")
-        val jazzKeywords = listOf("jazz", "miles", "davis", "coltrane", "brubeck", "armstrong", "nina", "simone", "ellington", "sinatra", "fitzgerald", "soul", "blues")
+        val jazzKeywords = listOf("jazz", "miles", "davis", "coltrane", "brubeck", "armstrong", "nina", "simone", "ellington", "sinatra", "fitzgerald", "soul")
         val metalKeywords = listOf("metal", "metallica", "maiden", "sabbath", "slipknot", "system", "down", "megadeth", "heavy", "thrash")
         val frenchKeywords = listOf("variété", "variete", "française", "francaise", "fran", "stromae", "piaf", "aznavour", "indochine", "angèle", "angele", "dion", "cabrel", "gainsbourg")
+        val reggaeKeywords = listOf("reggae", "marley", "ub40", "inner", "circle", "cliff", "jamaica", "ska")
+        val classiqueKeywords = listOf("classique", "classical", "beethoven", "mozart", "vivaldi", "bach", "debussy", "chopin", "symphony", "sonata")
+        val bluesKeywords = listOf("blues", "king", "muddy", "waters", "vaughan", "johnson", "buddy", "guy")
+        val lofiKeywords = listOf("lofi", "lo-fi", "dre", "chilledcow", "kudasaibeats", "jinsang", "idealism", "relax", "chillhop")
+        val countryKeywords = listOf("country", "cash", "parton", "denver", "nelson", "twain", "nashville", "cowboy")
+        val discoKeywords = listOf("disco", "gees", "abba", "gaynor", "summer", "chic", "funk")
+        val kpopKeywords = listOf("kpop", "k-pop", "bts", "blackpink", "psy", "newjeans", "twice", "korea")
+        val rnbKeywords = listOf("r&b", "rnb", "ocean", "sza", "keys", "usher", "beyonce", "rihanna", "chris", "brown")
 
         if (rockKeywords.any { searchStr.contains(it) }) return "Rock"
         if (popKeywords.any { searchStr.contains(it) }) return "Pop"
@@ -112,6 +176,14 @@ object TrackDatabase {
         if (jazzKeywords.any { searchStr.contains(it) }) return "Jazz"
         if (metalKeywords.any { searchStr.contains(it) }) return "Metal"
         if (frenchKeywords.any { searchStr.contains(it) }) return "Variété Française"
+        if (reggaeKeywords.any { searchStr.contains(it) }) return "Reggae"
+        if (classiqueKeywords.any { searchStr.contains(it) }) return "Classique"
+        if (bluesKeywords.any { searchStr.contains(it) }) return "Blues"
+        if (lofiKeywords.any { searchStr.contains(it) }) return "Lo-Fi"
+        if (countryKeywords.any { searchStr.contains(it) }) return "Country"
+        if (discoKeywords.any { searchStr.contains(it) }) return "Disco"
+        if (kpopKeywords.any { searchStr.contains(it) }) return "K-Pop"
+        if (rnbKeywords.any { searchStr.contains(it) }) return "R&B"
 
         return null
     }
@@ -121,14 +193,22 @@ object TrackDatabase {
      */
     fun getRelatedGenres(genre: String): List<String> {
         return when (genre) {
-            "Rock" -> listOf("Metal", "Pop")
+            "Rock" -> listOf("Metal", "Pop", "Country")
             "Metal" -> listOf("Rock")
-            "Pop" -> listOf("Variété Française", "Électro", "Rock")
-            "Rap" -> listOf("Phonk", "Pop")
+            "Pop" -> listOf("Variété Française", "Électro", "Rock", "Disco", "K-Pop", "R&B")
+            "Rap" -> listOf("Phonk", "Pop", "R&B")
             "Phonk" -> listOf("Rap", "Électro")
-            "Électro" -> listOf("Phonk", "Pop")
-            "Jazz" -> listOf("Pop", "Variété Française")
+            "Électro" -> listOf("Phonk", "Pop", "Disco")
+            "Jazz" -> listOf("Pop", "Variété Française", "Blues")
             "Variété Française" -> listOf("Pop", "Jazz")
+            "Reggae" -> listOf("Blues", "Pop")
+            "Classique" -> listOf("Jazz", "Lo-Fi")
+            "Blues" -> listOf("Jazz", "Reggae")
+            "Lo-Fi" -> listOf("Jazz", "Classique")
+            "Country" -> listOf("Rock", "Pop")
+            "Disco" -> listOf("Électro", "Pop")
+            "K-Pop" -> listOf("Pop", "R&B")
+            "R&B" -> listOf("Pop", "Rap")
             else -> listOf("Pop", "Rock")
         }
     }
