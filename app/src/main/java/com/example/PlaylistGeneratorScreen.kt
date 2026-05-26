@@ -76,6 +76,69 @@ fun PlaylistGeneratorScreen(viewModel: PlaylistViewModel) {
     val isLoading by viewModel.isLoading.collectAsState()
     val playlistSource by viewModel.playlistSource.collectAsState()
 
+    var updateInfo by remember { mutableStateOf<UpdateChecker.UpdateInfo?>(null) }
+    var showUpdateDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        val info = UpdateChecker.checkForUpdate(currentVersionCode = 1)
+        if (info.hasUpdate) {
+            updateInfo = info
+            showUpdateDialog = true
+        }
+    }
+
+    if (showUpdateDialog && updateInfo != null) {
+        AlertDialog(
+            onDismissRequest = { showUpdateDialog = false },
+            title = {
+                Text(
+                    text = "Mise à jour disponible !",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+            },
+            text = {
+                Text(
+                    text = "Voulez-vous télécharger la nouvelle version de MixFlow (v${updateInfo?.versionName}) ?",
+                    color = Color(0xFFE2E8F0)
+                )
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showUpdateDialog = false
+                        try {
+                            val intent = android.content.Intent(
+                                android.content.Intent.ACTION_VIEW,
+                                android.net.Uri.parse(updateInfo?.downloadUrl ?: "")
+                            ).apply {
+                                addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                            }
+                            context.startActivity(intent)
+                        } catch (e: Exception) {
+                            Toast.makeText(context, "Impossible d'ouvrir l'URL de téléchargement", Toast.LENGTH_LONG).show()
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF10B981),
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text("Mettre à jour")
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = { showUpdateDialog = false }
+                ) {
+                    Text("Plus tard", color = Color(0xFF94A3B8))
+                }
+            },
+            containerColor = Color(0xFF0F172A),
+            tonalElevation = 6.dp
+        )
+    }
+
     // Screen Layout
     Scaffold(
         modifier = Modifier.fillMaxSize().testTag("playlist_maker_screen"),
